@@ -173,6 +173,7 @@
     <ClInclude Include="..\src\glm.hpp" />
     <ClInclude Include="..\src\mge\behaviours\AbstractBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\KeysBehaviour.hpp" />
+    <ClInclude Include="..\src\mge\behaviours\MouseOrbitBehaviour.hpp" />
     <ClInclude Include="..\src\mge\behaviours\RotatingBehaviour.hpp" />
     <ClInclude Include="..\src\mge\config.hpp" />
     <ClInclude Include="..\src\mge\core\AbstractGame.hpp" />
@@ -184,16 +185,31 @@
     <ClInclude Include="..\src\mge\core\ShaderProgram.hpp" />
     <ClInclude Include="..\src\mge\core\Texture.hpp" />
     <ClInclude Include="..\src\mge\core\World.hpp" />
+    <ClInclude Include="..\src\mge\listeners\IKeyEventListener.hpp" />
+    <ClInclude Include="..\src\mge\listeners\IMouseWheelEventListener.hpp" />
     <ClInclude Include="..\src\mge\materials\AbstractMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\ColorMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\TextureMaterial.hpp" />
+    <ClInclude Include="..\src\mge\materials\DiffuseTextureMaterial.hpp" />
     <ClInclude Include="..\src\mge\MGEDemo.hpp" />
     <ClInclude Include="..\src\mge\util\DebugHud.hpp" />
+    <ClInclude Include="..\src\PennerEasing\Back.h" />
+    <ClInclude Include="..\src\PennerEasing\Bounce.h" />
+    <ClInclude Include="..\src\PennerEasing\Circ.h" />
+    <ClInclude Include="..\src\PennerEasing\Cubic.h" />
+    <ClInclude Include="..\src\PennerEasing\Elastic.h" />
+    <ClInclude Include="..\src\PennerEasing\Expo.h" />
+    <ClInclude Include="..\src\PennerEasing\Linear.h" />
+    <ClInclude Include="..\src\PennerEasing\Quad.h" />
+    <ClInclude Include="..\src\PennerEasing\Quart.h" />
+    <ClInclude Include="..\src\PennerEasing\Quint.h" />
+    <ClInclude Include="..\src\PennerEasing\Sine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\mge\behaviours\AbstractBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\KeysBehaviour.cpp" />
+    <ClCompile Include="..\src\mge\behaviours\MouseOrbitBehaviour.cpp" />
     <ClCompile Include="..\src\mge\behaviours\RotatingBehaviour.cpp" />
     <ClCompile Include="..\src\mge\core\AbstractGame.cpp" />
     <ClCompile Include="..\src\mge\core\Camera.cpp" />
@@ -204,17 +220,33 @@
     <ClCompile Include="..\src\mge\core\ShaderProgram.cpp" />
     <ClCompile Include="..\src\mge\core\Texture.cpp" />
     <ClCompile Include="..\src\mge\core\World.cpp" />
+    <ClCompile Include="..\src\mge\listeners\IKeyEventListener.cpp" />
+    <ClCompile Include="..\src\mge\listeners\IMouseWhellEventListener.cpp" />
     <ClCompile Include="..\src\mge\materials\AbstractMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\ColorMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\TextureMaterial.cpp" />
+    <ClCompile Include="..\src\mge\materials\DiffuseTextureMaterial.cpp" />
     <ClCompile Include="..\src\mge\MGEDemo.cpp" />
     <ClCompile Include="..\src\mge\util\DebugHud.cpp" />
+    <ClCompile Include="..\src\PennerEasing\Back.cpp" />
+    <ClCompile Include="..\src\PennerEasing\Bounce.cpp" />
+    <ClCompile Include="..\src\PennerEasing\Circ.cpp" />
+    <ClCompile Include="..\src\PennerEasing\Cubic.cpp" />
+    <ClCompile Include="..\src\PennerEasing\Elastic.cpp" />
+    <ClCompile Include="..\src\PennerEasing\Expo.cpp" />
+    <ClCompile Include="..\src\PennerEasing\Linear.cpp" />
+    <ClCompile Include="..\src\PennerEasing\Quad.cpp" />
+    <ClCompile Include="..\src\PennerEasing\Quart.cpp" />
+    <ClCompile Include="..\src\PennerEasing\Quint.cpp" />
+    <ClCompile Include="..\src\PennerEasing\Sine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\mge\shaders\color.frag" />
     <None Include="..\assets\mge\shaders\color.vert" />
     <None Include="..\assets\mge\shaders\texture.frag" />
     <None Include="..\assets\mge\shaders\texture.vert" />
+    <None Include="..\assets\mge\shaders\tom_dalling.frag" />
+    <None Include="..\assets\mge\shaders\tom_dalling.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

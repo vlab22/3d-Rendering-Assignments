@@ -14,6 +14,7 @@ void KeysBehaviour::update( float pStep )
 {
 	float moveSpeed = 0.0f; //default if no keys
 	float turnSpeed = 0.0f;
+	float heightSpeed = 0.0f;
 
 	if ( sf::Keyboard::isKeyPressed( sf::Keyboard::Up )) {
 		moveSpeed = _moveSpeed;
@@ -21,6 +22,14 @@ void KeysBehaviour::update( float pStep )
 	if ( sf::Keyboard::isKeyPressed( sf::Keyboard::Down )) {
 		moveSpeed = -_moveSpeed;
 	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
+		heightSpeed = +_moveSpeed;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
+		heightSpeed = -_moveSpeed;
+	}
+
 	if ( sf::Keyboard::isKeyPressed( sf::Keyboard::Right )) {
 		turnSpeed = -_turnSpeed;
 	}
@@ -28,7 +37,7 @@ void KeysBehaviour::update( float pStep )
 		turnSpeed = +_turnSpeed;
 	}
 	//translate the object in its own local space
-	_owner->translate( glm::vec3(0.0f, 0.0f, moveSpeed*pStep ) );
+	_owner->translate( glm::vec3(0.0f, heightSpeed*pStep, moveSpeed*pStep ) );
 
 	//we can also translate directly, basically we take the z axis from the matrix
 	//which is normalized and multiply it by moveSpeed*step, then we add it to the

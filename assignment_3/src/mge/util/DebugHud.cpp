@@ -39,6 +39,7 @@ void DebugHud::draw()
 {
 	//glDisable( GL_CULL_FACE );
 	glActiveTexture(GL_TEXTURE0);
+
     _window->pushGLStates();
     _window->draw(_debugText);
 	_window->popGLStates();

@@ -3,12 +3,13 @@
 
 #include "mge/core/AbstractGame.hpp"
 
+class Light;
 class DebugHud;
 
 /**
  * An example subclass of AbstractGame showing how we can setup a scene.
  */
-class MGEDemo: public AbstractGame
+class MGEDemo: public AbstractGame, public IKeyEventListener
 {
     //PUBLIC FUNCTIONS
 
@@ -26,6 +27,8 @@ class MGEDemo: public AbstractGame
 	    //override render to render the hud as well.
 	    virtual void _render();
 
+		Light* _suzzane;
+
 	private:
 		DebugHud* _hud;                   //hud display
 
@@ -33,6 +36,9 @@ class MGEDemo: public AbstractGame
 
         MGEDemo(const MGEDemo&);
         MGEDemo& operator=(const MGEDemo&);
+
+		// Inherited via IKeyEventListener
+		virtual void onKeyPressed(sf::Keyboard::Key keyCode) override;
 };
 
 #endif // MGEDEMO_HPP

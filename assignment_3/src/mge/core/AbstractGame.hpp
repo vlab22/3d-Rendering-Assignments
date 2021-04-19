@@ -4,6 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include <GL/glew.h>
 #include <string>
+#include <mge/listeners/IMouseWheelEventListener.hpp>
+#include <mge/listeners/IKeyEventListener.hpp>
 
 class World;
 class Renderer;
@@ -24,6 +26,9 @@ class AbstractGame
         virtual void initialize();
         //run the actual process of updating all objects, rendering them and processing events
         virtual void run();
+
+        virtual void addMouseWheelEventListener(IMouseWheelEventListener* listener);
+        virtual void addKeyEventListener(IKeyEventListener* listener);
 
     protected:
 
@@ -54,6 +59,9 @@ class AbstractGame
 		Renderer* _renderer;        //the renderer class to render the world
 		World* _world;              //the root game object that represents our scene
 		float _fps;                 //stores the real fps
+
+        std::vector<IMouseWheelEventListener*>* _mouseEventListeners;
+        std::vector<IKeyEventListener*>* _keyEventListeners;
 
     private:
         AbstractGame(const AbstractGame&);
