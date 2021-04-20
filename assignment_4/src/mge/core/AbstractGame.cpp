@@ -4,9 +4,13 @@
 #include "mge/core/Renderer.hpp"
 #include "mge/core/World.hpp"
 
+float AbstractGame::timeInSeconds = 0;
+
 AbstractGame::AbstractGame():_window(NULL),_renderer(NULL),_world(NULL), _fps(0)
 {
     //ctor
+    _mouseEventListeners = new std::vector<IMouseWheelEventListener*>();
+    _keyEventListeners = new std::vector<IKeyEventListener*>();
 }
 
 AbstractGame::~AbstractGame()
@@ -96,6 +100,7 @@ void AbstractGame::run()
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 
 	while (_window->isOpen()) {
+
 		timeSinceLastUpdate += updateClock.restart();
 
 		if (timeSinceLastUpdate > timePerFrame)
@@ -104,6 +109,9 @@ void AbstractGame::run()
 
 		    while (timeSinceLastUpdate > timePerFrame) {
                 timeSinceLastUpdate -= timePerFrame;
+
+                AbstractGame::timeInSeconds += timePerFrame.asSeconds();
+
                 _update(timePerFrame.asSeconds());
 		    }
 
@@ -124,6 +132,16 @@ void AbstractGame::run()
 		//empty the event queue
 		_processEvents();
     }
+}
+
+void AbstractGame::addMouseWheelEventListener(IMouseWheelEventListener* listener)
+{
+    _mouseEventListeners->push_back(listener);
+}
+
+void AbstractGame::addKeyEventListener(IKeyEventListener* listener)
+{
+    _keyEventListeners->push_back(listener);
 }
 
 void AbstractGame::_update(float pStep) {
@@ -155,11 +173,24 @@ void AbstractGame::_processEvents()
                 if (event.key.code == sf::Keyboard::Escape) {
                     exit = true;
                 }
+                else {
+                    for (unsigned int i = 0; i < _keyEventListeners->size(); i++) {
+                        _keyEventListeners->at(i)->onKeyPressed(event.key.code);
+                    }
+                }
+
                 break;
             case sf::Event::Resized:
                 //would be better to move this to the renderer
                 //this version implements nonconstrained match viewport scaling
                 glViewport(0, 0, event.size.width, event.size.height);
+                break;
+
+            case sf::Event::MouseWheelMoved:
+                for (unsigned int i = 0; i < _mouseEventListeners->size(); i++) {
+                    int delta = event.mouseWheel.delta;
+                    _mouseEventListeners->at(i)->onMouseWheelMoved(delta);
+                }
                 break;
 
             default:
