@@ -2,13 +2,14 @@
 #define MGEDEMO_HPP
 
 #include "mge/core/AbstractGame.hpp"
+#include "mge/materials/TerrainMaterial.hpp"
 
 class DebugHud;
 
 /**
  * An example subclass of AbstractGame showing how we can setup a scene.
  */
-class MyGame: public AbstractGame
+class MyGame: public AbstractGame, public IKeyEventListener
 {
     //PUBLIC FUNCTIONS
 
@@ -33,6 +34,11 @@ class MyGame: public AbstractGame
 
         MyGame(const MyGame&);
         MyGame& operator=(const MyGame&);
+
+		TerrainMaterial* terrainMaterial;
+
+		// Inherited via IKeyEventListener
+		virtual void onKeyPressed(sf::Keyboard::Key keyCode) override;
 };
 
 #endif // MGEDEMO_HPP

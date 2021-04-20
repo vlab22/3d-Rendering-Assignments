@@ -23,6 +23,18 @@
     <Filter Include="MGE Source files\mygame">
       <UniqueIdentifier>{8f334906-b293-4d1f-9206-db8ce023c4b5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="assets">
+      <UniqueIdentifier>{fe7ec981-1107-41b1-b348-260936d5191e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\models">
+      <UniqueIdentifier>{dc344620-420f-4165-be51-6d514092329f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MGE Source files\mge\listeners">
+      <UniqueIdentifier>{18f561a4-8752-4bf2-9a67-b319843147e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PennerEasing">
+      <UniqueIdentifier>{7bae2b65-cfad-44c7-aff5-be7fd8bc4a3a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -82,6 +94,51 @@
     <ClInclude Include="..\src\mygame\MyGame.hpp">
       <Filter>MGE Source files\mygame</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\behaviours\MouseOrbitBehaviour.hpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\listeners\IKeyEventListener.hpp">
+      <Filter>MGE Source files\mge\listeners</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\listeners\IMouseWheelEventListener.hpp">
+      <Filter>MGE Source files\mge\listeners</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PennerEasing\Back.h">
+      <Filter>PennerEasing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PennerEasing\Bounce.h">
+      <Filter>PennerEasing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PennerEasing\Circ.h">
+      <Filter>PennerEasing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PennerEasing\Cubic.h">
+      <Filter>PennerEasing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PennerEasing\Elastic.h">
+      <Filter>PennerEasing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PennerEasing\Expo.h">
+      <Filter>PennerEasing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PennerEasing\Linear.h">
+      <Filter>PennerEasing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PennerEasing\Quad.h">
+      <Filter>PennerEasing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PennerEasing\Quart.h">
+      <Filter>PennerEasing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PennerEasing\Quint.h">
+      <Filter>PennerEasing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PennerEasing\Sine.h">
+      <Filter>PennerEasing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mge\materials\TerrainMaterial.hpp">
+      <Filter>MGE Source files\mge\materials</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -138,5 +195,56 @@
     <ClCompile Include="..\src\mygame\MyGame.cpp">
       <Filter>MGE Source files\mygame</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\mge\behaviours\MouseOrbitBehaviour.cpp">
+      <Filter>MGE Source files\mge\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\listeners\IKeyEventListener.cpp">
+      <Filter>MGE Source files\mge\listeners</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\listeners\IMouseWhellEventListener.cpp">
+      <Filter>MGE Source files\mge\listeners</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PennerEasing\Back.cpp">
+      <Filter>PennerEasing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PennerEasing\Bounce.cpp">
+      <Filter>PennerEasing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PennerEasing\Circ.cpp">
+      <Filter>PennerEasing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PennerEasing\Cubic.cpp">
+      <Filter>PennerEasing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PennerEasing\Elastic.cpp">
+      <Filter>PennerEasing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PennerEasing\Expo.cpp">
+      <Filter>PennerEasing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PennerEasing\Linear.cpp">
+      <Filter>PennerEasing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PennerEasing\Quad.cpp">
+      <Filter>PennerEasing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PennerEasing\Quart.cpp">
+      <Filter>PennerEasing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PennerEasing\Quint.cpp">
+      <Filter>PennerEasing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PennerEasing\Sine.cpp">
+      <Filter>PennerEasing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mge\materials\TerrainMaterial.cpp">
+      <Filter>MGE Source files\mge\materials</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\assets\mge\shaders\terrain.frag" />
+    <None Include="..\assets\mge\shaders\terrain.vert" />
+    <None Include="..\assets\mge\shaders\texture.fs" />
+    <None Include="..\assets\mge\shaders\texture.vs" />
   </ItemGroup>
 </Project>
