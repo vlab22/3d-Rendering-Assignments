@@ -12,13 +12,13 @@
 ShaderProgram* TextureMaterial::_shader = NULL;
 
 GLint TextureMaterial::_uMVPMatrix = 0;
-GLint TextureMaterial::_uDiffuseTexture = 0;
+GLint TextureMaterial::_uTextureSplatMap = 0;
 
 GLint TextureMaterial::_aVertex = 0;
 GLint TextureMaterial::_aNormal = 0;
 GLint TextureMaterial::_aUV = 0;
 
-TextureMaterial::TextureMaterial(Texture * pDiffuseTexture):_diffuseTexture(pDiffuseTexture) {
+TextureMaterial::TextureMaterial(Texture * pDiffuseTexture):_diffuse1Texture(pDiffuseTexture) {
     _lazyInitializeShader();
 }
 
@@ -33,7 +33,7 @@ void TextureMaterial::_lazyInitializeShader() {
 
         //cache all the uniform and attribute indexes
         _uMVPMatrix = _shader->getUniformLocation("mvpMatrix");
-        _uDiffuseTexture = _shader->getUniformLocation("diffuseTexture");
+        _uTextureSplatMap = _shader->getUniformLocation("diffuseTexture");
 
         _aVertex = _shader->getAttribLocation("vertex");
         _aNormal = _shader->getAttribLocation("normal");
@@ -41,12 +41,12 @@ void TextureMaterial::_lazyInitializeShader() {
     }
 }
 
-void TextureMaterial::setDiffuseTexture (Texture* pDiffuseTexture) {
-    _diffuseTexture = pDiffuseTexture;
+void TextureMaterial::setSplatMapTexture (Texture* pDiffuseTexture) {
+    _diffuse1Texture = pDiffuseTexture;
 }
 
 void TextureMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) {
-    if (!_diffuseTexture) return;
+    if (!_diffuse1Texture) return;
 
     _shader->use();
 
@@ -59,9 +59,9 @@ void TextureMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModel
     //setup texture slot 0
     glActiveTexture(GL_TEXTURE0);
     //bind the texture to the current active slot
-    glBindTexture(GL_TEXTURE_2D, _diffuseTexture->getId());
+    glBindTexture(GL_TEXTURE_2D, _diffuse1Texture->getId());
     //tell the shader the texture slot for the diffuse texture is slot 0
-    glUniform1i (_uDiffuseTexture, 0);
+    glUniform1i (_uTextureSplatMap, 0);
 
     //pass in a precalculate mvp matrix (see texture material for the opposite)
     glm::mat4 mvpMatrix = pProjectionMatrix * pViewMatrix * pModelMatrix;

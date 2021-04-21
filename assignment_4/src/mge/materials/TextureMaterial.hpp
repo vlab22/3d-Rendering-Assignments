@@ -19,7 +19,7 @@ class TextureMaterial : public AbstractMaterial
 
         virtual void render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) override;
 
-        void setDiffuseTexture (Texture* pDiffuseTexture);
+        void setSplatMapTexture (Texture* pDiffuseTexture);
 
     protected:
     private:
@@ -28,13 +28,13 @@ class TextureMaterial : public AbstractMaterial
 
         //in this example we cache all identifiers for uniforms & attributes
         static GLint _uMVPMatrix;
-        static GLint _uDiffuseTexture;
+        static GLint _uTextureSplatMap;
 
         static GLint _aVertex ;
         static GLint _aNormal;
         static GLint _aUV ;
 
-        Texture* _diffuseTexture;
+        Texture* _diffuse1Texture;
 
         TextureMaterial(const TextureMaterial&);
         TextureMaterial& operator=(const TextureMaterial&);

@@ -139,6 +139,9 @@
     <ClInclude Include="..\src\mge\materials\TerrainMaterial.hpp">
       <Filter>MGE Source files\mge\materials</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\mge\materials\DiffuseTerrainMaterial.hpp">
+      <Filter>MGE Source files\mge\materials</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -240,11 +243,16 @@
     <ClCompile Include="..\src\mge\materials\TerrainMaterial.cpp">
       <Filter>MGE Source files\mge\materials</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\mge\materials\DiffuseTerrainMaterial.cpp">
+      <Filter>MGE Source files\mge\materials</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\mge\shaders\terrain.frag" />
     <None Include="..\assets\mge\shaders\terrain.vert" />
     <None Include="..\assets\mge\shaders\texture.fs" />
     <None Include="..\assets\mge\shaders\texture.vs" />
+    <None Include="..\assets\mge\shaders\tom_dalling_terrain.frag" />
+    <None Include="..\assets\mge\shaders\tom_dalling_terrain.vert" />
   </ItemGroup>
 </Project>

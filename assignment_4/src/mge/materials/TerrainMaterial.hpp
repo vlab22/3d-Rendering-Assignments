@@ -13,37 +13,54 @@ class Texture;
  */
 class TerrainMaterial : public AbstractMaterial
 {
-    public:
-        TerrainMaterial(Texture* pDiffuseTexture, Texture* pHeightMapTexture);
-        virtual ~TerrainMaterial();
+public:
+	TerrainMaterial(Texture* pTextureSplatMap, Texture* pHeightMapTexture, bool initShader = true);
+	virtual ~TerrainMaterial();
 
-        virtual void render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) override;
+	virtual void render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) override;
 
-        void setDiffuseTexture (Texture* pDiffuseTexture);
-        void setHeightMapTexture(Texture* pHeightMapTexture);
+	void setSplatMapTexture(Texture* pSplatMapTexture);
+	void setHeightMapTexture(Texture* pHeightMapTexture);
 
-        float heightFactor = 1;
+	void setDiffuseTextures(Texture* pDiffuseTexture1,
+		Texture* pDiffuseTexture2,
+		Texture* pDiffuseTexture3,
+		Texture* pDiffuseTexture4);
 
-    protected:
-    private:
-        static ShaderProgram* _shader;
-        static void _lazyInitializeShader();
+	float heightFactor = 1;
 
-        //in this example we cache all identifiers for uniforms & attributes
-        static GLint _uMVPMatrix;
-        static GLint _uDiffuseTexture;
-        static GLint _uHeightMapTexture;
-        static GLint _uHeightFactor;
+protected:
+	Texture* _heightMapTexture;
+	Texture* _splatMapTexture;
+	Texture* _diffuse1Texture;
+	Texture* _diffuse2Texture;
+	Texture* _diffuse3Texture;
+	Texture* _diffuse4Texture;
 
-        static GLint _aVertex ;
-        static GLint _aNormal;
-        static GLint _aUV ;
+	static ShaderProgram* _shader;
 
-        Texture* _diffuseTexture;
-        Texture* _heightMapTexture;
+	//in this example we cache all identifiers for uniforms & attributes
+	static GLint _uMVPMatrix;
+	static GLint _uTextureSplatMap;
+	static GLint _uHeightMapTexture;
+	static GLint _uHeightFactor;
 
-        TerrainMaterial(const TerrainMaterial&);
-        TerrainMaterial& operator=(const TerrainMaterial&);
+	static GLint _uTextureDiffuse1;
+	static GLint _uTextureDiffuse2;
+	static GLint _uTextureDiffuse3;
+	static GLint _uTextureDiffuse4;
+
+	static GLint _aVertex;
+	static GLint _aNormal;
+	static GLint _aUV;
+
+	static void _initializeShaderIds();
+
+private:
+	static void _lazyInitializeShader();
+
+	TerrainMaterial(const TerrainMaterial&);
+	TerrainMaterial& operator=(const TerrainMaterial&);
 
 };
 

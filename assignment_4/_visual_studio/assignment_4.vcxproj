@@ -189,6 +189,7 @@
     <ClInclude Include="..\src\mge\listeners\IMouseWheelEventListener.hpp" />
     <ClInclude Include="..\src\mge\materials\AbstractMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\ColorMaterial.hpp" />
+    <ClInclude Include="..\src\mge\materials\DiffuseTerrainMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\TerrainMaterial.hpp" />
     <ClInclude Include="..\src\mge\materials\TextureMaterial.hpp" />
     <ClInclude Include="..\src\mge\util\DebugHud.hpp" />
@@ -224,6 +225,7 @@
     <ClCompile Include="..\src\mge\listeners\IMouseWhellEventListener.cpp" />
     <ClCompile Include="..\src\mge\materials\AbstractMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\ColorMaterial.cpp" />
+    <ClCompile Include="..\src\mge\materials\DiffuseTerrainMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\TerrainMaterial.cpp" />
     <ClCompile Include="..\src\mge\materials\TextureMaterial.cpp" />
     <ClCompile Include="..\src\mge\util\DebugHud.cpp" />
@@ -245,6 +247,8 @@
     <None Include="..\assets\mge\shaders\terrain.vert" />
     <None Include="..\assets\mge\shaders\texture.fs" />
     <None Include="..\assets\mge\shaders\texture.vs" />
+    <None Include="..\assets\mge\shaders\tom_dalling_terrain.frag" />
+    <None Include="..\assets\mge\shaders\tom_dalling_terrain.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

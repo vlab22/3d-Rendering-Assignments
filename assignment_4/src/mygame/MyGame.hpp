@@ -2,7 +2,9 @@
 #define MGEDEMO_HPP
 
 #include "mge/core/AbstractGame.hpp"
+#include "mge/core/Light.hpp"
 #include "mge/materials/TerrainMaterial.hpp"
+#include "mge/materials/DiffuseTerrainMaterial.hpp"
 
 class DebugHud;
 
@@ -35,7 +37,11 @@ class MyGame: public AbstractGame, public IKeyEventListener
         MyGame(const MyGame&);
         MyGame& operator=(const MyGame&);
 
-		TerrainMaterial* terrainMaterial;
+		DiffuseTerrainMaterial* terrainMaterial;
+
+		std::vector<Texture*> diffuseTextures;
+
+		Light* _suzzane;
 
 		// Inherited via IKeyEventListener
 		virtual void onKeyPressed(sf::Keyboard::Key keyCode) override;
